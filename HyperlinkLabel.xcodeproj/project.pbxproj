@@ -13,6 +13,7 @@
 		A909285B2695844200ED73FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90928592695844200ED73FC /* Main.storyboard */; };
 		A909285D2695844400ED73FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A909285C2695844400ED73FC /* Assets.xcassets */; };
 		A90928602695844400ED73FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A909285E2695844400ED73FC /* LaunchScreen.storyboard */; };
+		A90928682695848D00ED73FC /* HyperlinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90928672695848D00ED73FC /* HyperlinkLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A909285C2695844400ED73FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A909285F2695844400ED73FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A90928612695844400ED73FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A90928672695848D00ED73FC /* HyperlinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A90928532695844200ED73FC /* AppDelegate.swift */,
 				A90928552695844200ED73FC /* SceneDelegate.swift */,
 				A90928572695844200ED73FC /* ViewController.swift */,
+				A90928672695848D00ED73FC /* HyperlinkLabel.swift */,
 				A90928592695844200ED73FC /* Main.storyboard */,
 				A909285C2695844400ED73FC /* Assets.xcassets */,
 				A909285E2695844400ED73FC /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90928582695844200ED73FC /* ViewController.swift in Sources */,
+				A90928682695848D00ED73FC /* HyperlinkLabel.swift in Sources */,
 				A90928542695844200ED73FC /* AppDelegate.swift in Sources */,
 				A90928562695844200ED73FC /* SceneDelegate.swift in Sources */,
 			);
@@ -289,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RMCG6LBC4;
 				INFOPLIST_FILE = HyperlinkLabel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RMCG6LBC4;
 				INFOPLIST_FILE = HyperlinkLabel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
