@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         label1.linkColor = .red
         label1.textColor = .black
         label1.underLine = 1
-        label1.text = "123456789 https://github.com/leoiphonedev/DetectLinksUILabel"
+        label1.text = "123456789 https://github.com/Ja7423/HyperlinkLabel"
         label1.delegate = self
         
         label2.text = "swift roadmap https://medium.com/geekculture/guidelines-roadmap-and-resources-for-beginner-to-advanced-ios-app-development-using-swift-7370996b0dc5"
