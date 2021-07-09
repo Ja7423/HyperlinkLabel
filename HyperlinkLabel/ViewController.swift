@@ -25,7 +25,10 @@ class ViewController: UIViewController {
         label1.text = "123456789 https://github.com/Ja7423/HyperlinkLabel"
         label1.delegate = self
         
-        label2.text = "swift roadmap https://medium.com/geekculture/guidelines-roadmap-and-resources-for-beginner-to-advanced-ios-app-development-using-swift-7370996b0dc5"
+        let text = "swift roadmap"
+        label2.text = text
+        label2.addLink("https://medium.com/geekculture/guidelines-roadmap-and-resources-for-beginner-to-advanced-ios-app-development-using-swift-7370996b0dc5",
+                       range: NSRange(location: 0, length: text.count))
         
         label3.delegate = self
         label3.text = "https://www.youtube.com/channel/UC8UlXXAlPiBsV-rKvMh_T0g 和 https://www.youtube.com/watch?v=MRKLggeJqLA"

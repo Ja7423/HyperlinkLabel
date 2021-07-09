@@ -71,22 +71,37 @@ class HyperlinkLabel: UILabel {
         return tapGesture
     }()
     
-    private var linkRanges: [NSRange] = [] {
-        didSet {
-            linkRanges.count > 0 ? addTapGesture() : removeTapGesture()
-        }
-    }
+    private var linkTable: [NSRange: String] = [:]
     
     // MARK: -
     deinit {
         removeTapGesture()
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addTapGesture()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        addTapGesture()
+    }
+    
+    public func addLink(_ link: String, range: NSRange) {
+        linkTable[range] = link
+        setNeedUpdateArrtibuteText()
+    }
+    
     // MARK: - Regular expression
     private func detectText(_ text: String) {
         if let urls = detectUrl(text: text) {
-            debugPrint(urls)
-            linkRanges.append(contentsOf: urls)
+            urls.forEach { r in
+                if let url = string(with: r) {
+                    linkTable[r] = url
+                }
+            }
+            debugPrint(linkTable)
         }
     }
     
@@ -116,7 +131,7 @@ class HyperlinkLabel: UILabel {
                                                           .foregroundColor: self.textColor!]
         let attributedString = NSMutableAttributedString(string: text, attributes: normalAttrs)
         
-        for range in linkRanges {
+        for range in linkTable.keys {
             let attrs: [NSAttributedString.Key: Any] = [.font : linkFont,
                                                         .foregroundColor: linkColor,
                                                         .underlineStyle: underLine,
@@ -144,11 +159,10 @@ class HyperlinkLabel: UILabel {
         guard let charIndex = characterIndex(at: touchPoint) else { return }
         debugPrint(charIndex)
         
-        // check linkRanges
-        guard let range = linkRanges.filter({ $0.contains(charIndex) }).first else { return }
+        guard let range = linkTable.keys.filter({ $0.contains(charIndex) }).first else { return }
         debugPrint(range)
         
-        guard let link = (text as NSString?)?.substring(with: range) else { return }
+        guard let link = linkTable[range] else { return }
         debugPrint(link)
         
         delegate?.tapLink(label: self, link: link)
@@ -189,6 +203,10 @@ private extension UILabel {
          */
         guard box.contains(point) else { return nil }
         return location
+    }
+    
+    func string(with range: NSRange) -> String? {
+        return (text as NSString?)?.substring(with: range)
     }
 }
 
