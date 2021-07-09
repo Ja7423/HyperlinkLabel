@@ -159,10 +159,7 @@ class HyperlinkLabel: UILabel {
         guard let charIndex = characterIndex(at: touchPoint) else { return }
         debugPrint(charIndex)
         
-        guard let range = linkTable.keys.filter({ $0.contains(charIndex) }).first else { return }
-        debugPrint(range)
-        
-        guard let link = linkTable[range] else { return }
+        guard let link = linkTable.filter({ $0.key.contains(charIndex) }).first?.value else { return }
         debugPrint(link)
         
         delegate?.tapLink(label: self, link: link)
